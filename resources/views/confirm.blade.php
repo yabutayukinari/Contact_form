@@ -16,10 +16,7 @@
         <tr>
           <th>お名前※</th>
           @if(isset($inputs['lastname']))
-          <td>{{ $inputs['lastname'] }}
-            <input type="hidden" name="lastname" value="{{ $inputs['lastname'] }}">
-             {{$inputs['firstname']}}
-             <input type="hidden" name="firstname" value="{{ $inputs['firstname'] }}">
+          <td>{{ $inputs['lastname'] }} {{$inputs['firstname']}}
             </td>
           @endif
         </tr>
@@ -34,41 +31,35 @@
                   女性
               @endif
             </td>
-            <input type="hidden" name="gender" value="{{ $inputs['gender'] }}">
         </tr>
 
         <tr>
           <th>メールアドレス※</th>
           <td>{{$inputs['email']}}</td>
-          <input type="hidden" name="email" value="{{ $inputs['email'] }}">
         </tr>
 
         <tr>
           <th><label>郵便番号※</label></th>
           <td>〒{{ $inputs['zip11'] }}</td>
-          <input type="hidden" name="zip11" value="{{ $inputs['zip11'] }}">
         </tr>
 
         <tr>
           <th><label>住所※</label></th>
           <td>{{ $inputs['addr11'] }}</td>
-          <input type="hidden" name="addr11" value="{{ $inputs['addr11'] }}">
         </tr>
 
         <tr>
           <th><label>建物名</label></th>
           <td>{{$inputs['building_name']}}</td>
-          <input type="hidden" name="building_name" value="{{ $inputs['building_name'] }}">
         </tr>
 
         <tr>
           <th>ご意見※</th>
           <td>{{$inputs['opinion']}}</td>
-          <input type="hidden" name="opinion" value="{{ $inputs['opinion'] }}">
         </tr>
       </table>
       <button name="action" type="submit" value="submit">送信</button>
-      <button name="action" type="submit" value="return">入力画面に戻る</button>
+      <a href="{{ route('return') }}">入力画面に戻る</a>
     </form>
   </div>
 </body>

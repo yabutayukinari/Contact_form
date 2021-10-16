@@ -28,5 +28,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ContactsController::class, 'create'])->name('create');
 Route::post('/confirm', [ContactsController::class, 'confirm'])->name('confirm');
 Route::post('/process', [ContactsController::class, 'process'])->name('process');
+Route::get('/return_input', [ContactsController::class, 'returnInput'])->name('return');
 Route::get('/complete', [ContactsController::class, 'complete'])->name('complete');
-
