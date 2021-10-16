@@ -53,15 +53,16 @@ class ContactsController extends Controller
     public function returnInput(): RedirectResponse
     {
         $inputs = [
-            'lastname' => Session::get('lastname'),
-            'firstname' => Session::get('firstname'),
-            'gender' => Session::get('gender'),
-            'email' => Session::get('email'),
-            'zip11' => Session::get('zip11'),
-            'addr11' => Session::get('addr11'),
-            'building_name' => Session::get('building_name'),
-            'opinion' => Session::get('opinion')
+            'lastname' => Session::pull('lastname'),
+            'firstname' => Session::pull('firstname'),
+            'gender' => Session::pull('gender'),
+            'email' => Session::pull('email'),
+            'zip11' => Session::pull('zip11'),
+            'addr11' => Session::pull('addr11'),
+            'building_name' => Session::pull('building_name'),
+            'opinion' => Session::pull('opinion')
         ];
+
         return redirect()->route('create')->withInput($inputs);
     }
 
