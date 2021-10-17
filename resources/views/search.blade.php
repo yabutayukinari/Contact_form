@@ -12,6 +12,7 @@
   <div class="contact-form">
     <form method="get" action="{{ url('/search') }}">
       @csrf
+       {{method_field('get')}}
       <table>
         <tr>
           <th><label for="">お名前</label></th>
@@ -19,8 +20,8 @@
         </tr>
         <tr>
           <th>登録日</th>
-            {{-- <td><input type="date" name="cleated_at" value="{{ $cleated_at['cleated_at'] }}"></td> --}}
-            {{-- <td><input type="date" name="cleated_at"></td> --}}
+            <td><input type="date" name="start_at"></td>
+            <td><input type="date" name="end_at"></td>
         </tr>
 
         <tr>
@@ -41,6 +42,7 @@
       <button type="submit">検索</button>
       <a href="">リセット</a>
     </form>
+    @if(!empty($items))
   </div>
   @foreach ($items as $item)
   <div>
@@ -49,9 +51,14 @@
       {{-- <p>{{$articles -> links() }}</p><!-- ページネーション --> --}}
     
 {{-- </article> --}}
+      {{$item['id']}}
       {{ $item['fullname'] }}
       {{ $item['email'] }}
+      {{ $item['opinion'] }}
   </div>
   @endforeach
+  @else
+        <p>データがみつかりません</p>
+  @endif
 </body>
 </html>

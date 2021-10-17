@@ -100,6 +100,14 @@ class ContactsController extends Controller
         if(!empty($fullname)) {
             $query->where('fullname', 'like', '%'.$fullname.'%');
         }
+        // 日付検索（開始日）
+        if (!empty($request->start_date)) {
+            $query->where('created_at', '>=', $request->start_date)->get();
+        }
+        // 日付検索（終了日）
+        if (!empty($request->end_date)) {
+            $query->where('created_at', '<=', $request->end_date)->get();
+        }
         if (!empty($email)) {
             $query->where('email', 'like', '%' . $email . '%');
         }
@@ -108,7 +116,7 @@ class ContactsController extends Controller
             $query->where('fullname', 'like', '%' . $request->get('fullname') . '%');
         }
 
-        foreach ($request->only(['fullname', 'email']) as $key => $value) {
+        foreach ($request->only(['fullname', 'email','created_at']) as $key => $value) {
             $query->where($key, 'like', '%' . $value . '%');
         }
 
