@@ -16,11 +16,7 @@
         <tr>
           <th>お名前※</th>
           @if(isset($inputs['lastname']))
-          <td>{{ $inputs['lastname'] }}
-            <input type="hidden" name="lastname" value="{{ $inputs['lastname'] }}">
-             {{$inputs['firstname']}}
-             <input type="hidden" name="firstname" value="{{ $inputs['firstname'] }}">
-            </td>
+          <td>{{ $inputs['lastname'] }}{{$inputs['firstname']}}</td>
           @endif
         </tr>
 
@@ -34,13 +30,11 @@
                   女性
               @endif
             </td>
-            <input type="hidden" name="gender" value="{{ $inputs['gender'] }}">
         </tr>
 
         <tr>
           <th>メールアドレス※</th>
           <td>{{$inputs['email']}}</td>
-          <input type="hidden" name="email" value="{{ $inputs['email'] }}">
         </tr>
 
         <tr>
@@ -64,11 +58,10 @@
         <tr>
           <th>ご意見※</th>
           <td>{{$inputs['opinion']}}</td>
-          <input type="hidden" name="opinion" value="{{ $inputs['opinion'] }}">
         </tr>
       </table>
       <button name="action" type="submit" value="submit">送信</button>
-      <button name="action" type="submit" value="return">入力画面に戻る</button>
+      <a href="{{ route('return') }}">修正する</a>
     </form>
   </div>
 </body>
